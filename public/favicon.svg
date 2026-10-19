@@ -1,0 +1,23 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 48 48" fill="none">
+  <!-- Perisai Segilima Emas & Merah Putih -->
+  <defs>
+    <linearGradient id="goldGrad" x1="0%" y1="0%" x2="100%" y2="100%">
+      <stop offset="0%" stop-color="#f59e0b" />
+      <stop offset="50%" stop-color="#d97706" />
+      <stop offset="100%" stop-color="#b45309" />
+    </linearGradient>
+    <linearGradient id="shieldGrad" x1="0%" y1="0%" x2="0%" y2="100%">
+      <stop offset="0%" stop-color="#0f2744" />
+      <stop offset="100%" stop-color="#0a192f" />
+    </linearGradient>
+  </defs>
+  <!-- Background Shield Outline -->
+  <path d="M24 3L42 9V22C42 33.2 34.3 43.1 24 45.8C13.7 43.1 6 33.2 6 22V9L24 3Z" fill="url(#shieldGrad)" stroke="url(#goldGrad)" stroke-width="2.2" stroke-linejoin="round" />
+  <!-- Merah Putih Inner Accent -->
+  <path d="M24 6L39 11V21C39 24 37.5 27 35.5 29.5L24 21V6Z" fill="#dc2626" />
+  <path d="M24 6L9 11V21C9 24 10.5 27 12.5 29.5L24 21V6Z" fill="#f8fafc" />
+  <!-- Center Star of Authority & Unity -->
+  <polygon points="24,14 26.5,21.5 34,21.5 28,26 30.5,33.5 24,29 17.5,33.5 20,26 14,21.5 21.5,21.5" fill="#f59e0b" stroke="#b45309" stroke-width="0.6" />
+  <!-- Base Emblem Ribbon -->
+  <path d="M14 38C17 40 21 41 24 41C27 41 31 40 34 38" stroke="#f59e0b" stroke-width="1.8" stroke-linecap="round" />
+</svg>
