@@ -66,6 +66,23 @@ const AppContent: React.FC = () => {
     }
   }, [user, path]);
 
+  // ------------------------------------------------------------
+  // Route Guard: Pemeriksaan Otoritas Hak Akses Peran (RBAC / R-12)
+  // ------------------------------------------------------------
+  const routeCheck = isRouteAllowed(path, user?.role);
+
+  // Catat pelanggaran ke audit log jika aparatur mencoba berpindah ke rute yang dilarang
+  useEffect(() => {
+    if (user && !routeCheck.allowed && reportedIncidentRef.current !== path) {
+      reportedIncidentRef.current = path;
+      recordSecurityIncident(
+        'AKSES_RUTE_ILEGAL',
+        path,
+        `Upaya akses lintas peran tidak sah ke rute "${path}" oleh aparatur ${user.name} (${user.role}) berhasil dicegah sistem keamanan (R-12).`
+      );
+    }
+  }, [routeCheck.allowed, path, user, recordSecurityIncident]);
+
   // Jika belum login, hanya halaman Login yang dapat dimuat
   if (!user || path === '/login') {
     return <Login />;
@@ -126,24 +143,6 @@ const AppContent: React.FC = () => {
       },
     ];
   }
-
-  // ------------------------------------------------------------
-  // Route Guard: Pemeriksaan Otoritas Hak Akses Peran (RBAC / R-12)
-  // Tidak boleh langsung berpindah ke halaman peran lain sesuka hati!
-  // ------------------------------------------------------------
-  const routeCheck = isRouteAllowed(path, user.role);
-
-  // Catat pelanggaran ke audit log jika aparatur mencoba berpindah ke rute yang dilarang
-  useEffect(() => {
-    if (!routeCheck.allowed && reportedIncidentRef.current !== path) {
-      reportedIncidentRef.current = path;
-      recordSecurityIncident(
-        'AKSES_RUTE_ILEGAL',
-        path,
-        `Upaya akses lintas peran tidak sah ke rute "${path}" oleh aparatur ${user.name} (${user.role}) berhasil dicegah sistem keamanan (R-12).`
-      );
-    }
-  }, [routeCheck.allowed, path, user.name, user.role, recordSecurityIncident]);
 
   if (!routeCheck.allowed) {
     return (

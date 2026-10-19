@@ -658,7 +658,7 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       p.vulnerable.balita += Math.floor(surge * 0.15);
       p.vulnerable.lansia += Math.floor(surge * 0.2);
       p.lastUpdate = now;
-      message = `🚨 Evakuasi Masuk: +${surge} pengungsi tiba di ${p.name}! (Total: ${num(p.evacuees)} jiwa)`;
+      message = `[LAPORAN EVAKUASI] +${surge} pengungsi tiba di ${p.name}! (Total: ${num(p.evacuees)} jiwa)`;
       notify(draft, {
         toRole: 'koordinator',
         level: 'warning',
@@ -695,7 +695,7 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
       ];
       const w = weathers[Math.floor(Math.random() * weathers.length)];
       draft.disasterAlert = { ...w, source: 'BMKG & PVMBG Jawa Barat', updatedAt: now };
-      message = `⚠️ ${w.title}: ${w.desc}`;
+      message = `[PERINGATAN RESMI] ${w.title}: ${w.desc}`;
       notify(draft, { toRole: 'admin', level: 'critical', message: `${w.title} — ${w.desc}` });
       notify(draft, { toRole: 'koordinator', level: 'warning', message: `${w.title} — ${w.desc}` });
       appendAudit(draft, {
@@ -717,7 +717,7 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         const req = draft.requests.find((r) => r.id === activeShp.requestId);
         const post = req && draft.posts.find((p) => p.id === req.postId);
         const driver = draft.users.find((u) => u.id === activeShp.driverId);
-        message = `🚚 Update GPS Armada: ${activeShp.id} (${driver?.name}) mencapai ${nextProg}% menuju ${post?.name || 'posko'}.`;
+        message = `[TELEMETRI ARMADA] ${activeShp.id} (${driver?.name}) mencapai ${nextProg}% menuju ${post?.name || 'posko'}.`;
         if (nextProg >= 100) {
           notify(draft, {
             toRole: 'posko',
@@ -728,11 +728,11 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         }
       } else {
         const p = draft.posts[Math.floor(Math.random() * draft.posts.length)];
-        message = `📊 Status Posko: ${p.name} berkapasitas ${num(p.capacity)} jiwa terisi ${num(p.evacuees)} jiwa.`;
+        message = `[STATUS POSKO] ${p.name} berkapasitas ${num(p.capacity)} jiwa terisi ${num(p.evacuees)} jiwa.`;
       }
     } else {
       const it = draft.items[Math.floor(Math.random() * draft.items.length)];
-      message = `📦 Cadangan Logistik: Ketersediaan ${it.name} di gudang induk adalah ${num(it.stock)} ${it.unit}.`;
+      message = `[CADANGAN LOGISTIK] Ketersediaan ${it.name} di gudang induk adalah ${num(it.stock)} ${it.unit}.`;
     }
 
     commit(draft);

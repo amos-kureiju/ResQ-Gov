@@ -100,20 +100,20 @@ const AdminDashboard: React.FC = () => {
               <AreaChart data={chartData} margin={{ top: 10, right: 10, left: -20, bottom: 0 }}>
                 <defs>
                   <linearGradient id="colorFoodAdm" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#d97706" stopOpacity={0.25} />
-                    <stop offset="95%" stopColor="#d97706" stopOpacity={0} />
+                    <stop offset="5%" stopColor="#0f2744" stopOpacity={0.3} />
+                    <stop offset="95%" stopColor="#0f2744" stopOpacity={0.02} />
                   </linearGradient>
                   <linearGradient id="colorMedAdm" x1="0" y1="0" x2="0" y2="1">
-                    <stop offset="5%" stopColor="#2563eb" stopOpacity={0.25} />
-                    <stop offset="95%" stopColor="#2563eb" stopOpacity={0} />
+                    <stop offset="5%" stopColor="#b91c1c" stopOpacity={0.25} />
+                    <stop offset="95%" stopColor="#b91c1c" stopOpacity={0.02} />
                   </linearGradient>
                 </defs>
-                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e8edf5" />
+                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" />
                 <XAxis dataKey="time" tick={{ fontSize: 11, fill: '#64748b' }} axisLine={false} tickLine={false} />
                 <YAxis tick={{ fontSize: 11, fill: '#64748b' }} axisLine={false} tickLine={false} unit="%" />
-                <Tooltip />
-                <Area type="monotone" dataKey="pangan" name="Ketahanan Pangan (%)" stroke="#d97706" strokeWidth={2} fill="url(#colorFoodAdm)" />
-                <Area type="monotone" dataKey="medis" name="Obat & Medis (%)" stroke="#2563eb" strokeWidth={2} fill="url(#colorMedAdm)" />
+                <Tooltip contentStyle={{ background: '#ffffff', borderRadius: 6, border: '1px solid #cbd5e1', fontSize: '0.8rem', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.06)' }} />
+                <Area type="monotone" dataKey="pangan" name="Ketahanan Pangan (%)" stroke="#0f2744" strokeWidth={2.5} fill="url(#colorFoodAdm)" />
+                <Area type="monotone" dataKey="medis" name="Obat & Medis (%)" stroke="#b91c1c" strokeWidth={2.5} fill="url(#colorMedAdm)" />
               </AreaChart>
             </ResponsiveContainer>
           </div>

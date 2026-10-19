@@ -100,7 +100,7 @@ const DriverTasks: React.FC = () => {
 
             {/* Tombol Perjalanan / Penyerahan */}
             {activeShipment.status === 'ditugaskan' && (
-              <div style={{ padding: 16, background: '#eff6ff', borderRadius: 8, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
+              <div style={{ padding: 16, background: '#f8fafc', border: '1px solid #e2e8f0', borderLeft: '3px solid #0f2744', borderRadius: 6, display: 'flex', justifyContent: 'space-between', alignItems: 'center' }}>
                 <div>
                   <strong>Muatan telah dimuat di gudang logistik.</strong>
                   <div className="cell-sub">Klik tombol untuk mulai perjalanan dan memberitahu petugas posko.</div>

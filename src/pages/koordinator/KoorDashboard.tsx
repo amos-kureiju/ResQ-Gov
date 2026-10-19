@@ -58,13 +58,13 @@ const KoorDashboard: React.FC = () => {
           <div className="chart">
             <ResponsiveContainer width="100%" height="100%">
               <BarChart data={chart} margin={{ top: 10, right: 10, left: -18, bottom: 0 }}>
-                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e8edf5" />
+                <CartesianGrid strokeDasharray="3 3" vertical={false} stroke="#e2e8f0" />
                 <XAxis dataKey="name" tick={{ fontSize: 11, fill: '#64748b' }} axisLine={false} tickLine={false} />
                 <YAxis tick={{ fontSize: 11, fill: '#64748b' }} axisLine={false} tickLine={false} unit="%" />
-                <Tooltip formatter={(v) => [`${v}%`, 'Rasio']} labelFormatter={(_l, p) => p?.[0]?.payload?.full ?? ''} contentStyle={{ borderRadius: 10, border: '1px solid #e2e8f0' }} />
-                <ReferenceLine y={100} stroke="#dc2626" strokeDasharray="4 4" />
-                <Bar dataKey="ratio" radius={[6, 6, 0, 0]}>
-                  {chart.map((c) => <Cell key={c.name} fill={c.ratio <= 100 ? '#dc2626' : c.ratio < 160 ? '#d97706' : '#1d4ed8'} />)}
+                <Tooltip formatter={(v) => [`${v}%`, 'Rasio Ketahanan']} labelFormatter={(_l, p) => p?.[0]?.payload?.full ?? ''} contentStyle={{ borderRadius: 6, border: '1px solid #cbd5e1', fontSize: '0.8rem', boxShadow: '0 4px 6px -1px rgba(0,0,0,0.06)' }} />
+                <ReferenceLine y={100} stroke="#b91c1c" strokeDasharray="4 4" />
+                <Bar dataKey="ratio" radius={[4, 4, 0, 0]}>
+                  {chart.map((c) => <Cell key={c.name} fill={c.ratio <= 100 ? '#b91c1c' : c.ratio < 150 ? '#b45309' : '#0f2744'} />)}
                 </Bar>
               </BarChart>
             </ResponsiveContainer>

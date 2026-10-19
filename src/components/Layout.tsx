@@ -15,6 +15,7 @@ import {
   Radio,
   FileCheck,
   CheckCircle,
+  Pause,
 } from 'lucide-react';
 import { useStore } from '../store/StoreContext';
 import { navigate, usePath } from '../router';
@@ -209,7 +210,17 @@ export const Layout: React.FC<{ nav: NavItem[]; title: string; children: React.R
                 onClick={() => toggleSimulation()}
                 title="Status timer simulasi otomatis latar belakang"
               >
-                <span>{state.liveSimulation ? '🟢 Live Sync On' : '⏸️ Paused'}</span>
+                {state.liveSimulation ? (
+                  <>
+                    <span className="ticker-live-dot" />
+                    <span>SINKRONISASI AKTIF</span>
+                  </>
+                ) : (
+                  <>
+                    <Pause size={11} />
+                    <span>DIJEDA</span>
+                  </>
+                )}
               </button>
             </div>
           </div>

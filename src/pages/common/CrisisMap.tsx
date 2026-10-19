@@ -118,7 +118,7 @@ export const CrisisMap: React.FC = () => {
         actions={
           <div style={{ display: 'flex', gap: 10 }}>
             <button className="btn btn-outline" onClick={handleSimulate}>
-              <Zap size={16} className="text-warning" /> ⚡ Picu Kejadian Lapangan
+              <Zap size={16} className="text-warning" /> Picu Kejadian Lapangan
             </button>
             <button className="btn btn-primary" onClick={() => setShowAddModal(true)}>
               <PlusCircle size={16} /> Daftarkan Posko Baru
@@ -320,7 +320,7 @@ export const CrisisMap: React.FC = () => {
                       <animate attributeName="opacity" values="0.8;0;0.8" dur="2s" repeatCount="indefinite" />
                     </circle>
                     <text x={curX} y={curY - 4} fill="#93c5fd" fontSize="2.2" textAnchor="middle" fontWeight="bold">
-                      🚚 {shp.id} ({shp.progress || 50}%)
+                      ARMADA {shp.id} ({shp.progress || 50}%)
                     </text>
                   </g>
                 );
