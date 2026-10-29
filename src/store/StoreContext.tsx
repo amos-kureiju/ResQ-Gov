@@ -680,21 +680,21 @@ export const StoreProvider: React.FC<{ children: React.ReactNode }> = ({ childre
         {
           level: 'siaga1' as const,
           title: 'PERINGATAN DINI CUACA EKSTREM BMKG',
-          desc: 'Curah hujan ekstrem >150 mm/hari berpotensi longsor di jalur distribusi Cibeber–Pulo.',
+          desc: 'Curah hujan ekstrem >150 mm/hari berpotensi memicu banjir luapan di jalur distribusi Medan–Siantar.',
         },
         {
           level: 'siaga2' as const,
-          title: 'KENAIKAN DEBIT AIR BENDUNG KATULAMPA',
-          desc: 'Tinggi Muka Air (TMA) 190 cm (Siaga II). Daerah hilir diinstruksikan waspada banjir kiriman.',
+          title: 'KENAIKAN DEBIT AIR SUNGAI DELI MEDAN',
+          desc: 'Tinggi Muka Air (TMA) Sungai Deli 190 cm (Siaga II). Daerah Medan Maimun & Medan Labuhan diinstruksikan waspada banjir kiriman.',
         },
         {
           level: 'waspada' as const,
-          title: 'PEMANTAUAN KETINGGIAN AIR BENDUNG (PUSDALOPS)',
-          desc: 'Tinggi Muka Air (TMA) berada pada status Waspada (180 cm).',
+          title: 'PEMANTAUAN KETINGGIAN AIR SUNGAI BAH BOLON (PUSDALOPS SIANTAR)',
+          desc: 'Tinggi Muka Air (TMA) Sungai Bah Bolon berada pada status Waspada (180 cm).',
         },
       ];
       const w = weathers[Math.floor(Math.random() * weathers.length)];
-      draft.disasterAlert = { ...w, source: 'BMKG & PVMBG Jawa Barat', updatedAt: now };
+      draft.disasterAlert = { ...w, source: 'BMKG Stasiun Klimatologi Sumatera Utara & Pusdalops BPBD', updatedAt: now };
       message = `[PERINGATAN RESMI] ${w.title}: ${w.desc}`;
       notify(draft, { toRole: 'admin', level: 'critical', message: `${w.title} — ${w.desc}` });
       notify(draft, { toRole: 'koordinator', level: 'warning', message: `${w.title} — ${w.desc}` });

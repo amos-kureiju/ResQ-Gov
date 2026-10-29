@@ -85,11 +85,11 @@ Aplikasi menyediakan kredensial resmi untuk simulasi dan demonstrasi alur kerja:
 | Peran Kedinasan | Nama Aparatur & NIP | Akun | Kata Sandi | Lingkup Tugas Pokok |
 | :--- | :--- | :--- | :--- | :--- |
 | **Kepala Dinas Sosial** | Dr. Hj. Ratna Wulandari, M.Si<br>`NIP. 19740512 199903 2 001` | `kadis` | `kadis123` | Otorisasi anggaran > Rp 25 Jt, penyelesaian berita acara selisih, audit trail, laporan resmi BPK. |
-| **Koordinator Logistik** | Ir. Bambang Sudarsono<br>`NIP. 19800815 200501 1 004` | `koordinator` | `koor123` | Verifikasi kelayakan posko, kontrol stok minimum gudang, dispatch armada, buka kunci pengiriman. |
-| **Petugas Posko 1** | Siti Aminah, S.Sos<br>`NIP. 19880403 201101 2 003` | `posko1` | `posko123` | Sensus pengungsi, pengajuan bantuan berbasis kuota, pemegang kode serah terima posko. |
-| **Petugas Posko 2** | Rudi Hermawan<br>`NIP. 19900918 201402 1 001` | `posko2` | `posko123` | Pengelolaan Posko Mandiri (Kecamatan Cibeber), verifikasi fisik bantuan masuk. |
-| **Pengemudi Armada 1** | Budi Santoso<br>`NIP. 19920110 201703 1 002` | `driver1` | `driver123` | Truk Engkel (B 9102 SXZ), pengiriman logistik lapangan, input kode serah terima BAST. |
-| **Pengemudi Armada 2** | Agus Pratama<br>`NIP. 19950722 201902 1 005` | `driver2` | `driver123` | Mobil Box Rescue (D 8841 YZ), distribusi cepat ke daerah terisolir. |
+| **Koordinator Logistik** | Ir. Bambang Hartono<br>`NIP. 19800815 200501 1 004` | `koordinator` | `koor123` | Verifikasi kelayakan posko, kontrol stok minimum gudang, dispatch armada, buka kunci pengiriman. |
+| **Petugas Posko 1** | Siti Aminah, S.Sos<br>`NIP. 19880403 201101 2 003` | `posko1` | `posko123` | Sensus pengungsi, pengajuan bantuan kuota jiwa, pemegang kode serah terima Posko Lapangan Adam Malik (Siantar). |
+| **Petugas Posko 2** | Rudi Hermawan<br>`NIP. 19900918 201402 1 001` | `posko2` | `posko123` | Pengelolaan Posko Terpadu Lapangan Merdeka (Medan), verifikasi fisik bantuan masuk. |
+| **Pengemudi Armada 1** | Budi Santoso<br>`NIP. 19920110 201703 1 002` | `driver1` | `driver123` | Truk Engkel (BK 9123 KZ), pengiriman logistik lapangan, input kode serah terima BAST. |
+| **Pengemudi Armada 2** | Agus Pratama<br>`NIP. 19950722 201902 1 005` | `driver2` | `driver123` | Mobil Box Rescue (BK 9456 KZ), distribusi cepat ke daerah terisolir. |
 
 ---
 

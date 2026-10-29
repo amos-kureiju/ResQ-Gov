@@ -2,26 +2,26 @@ import type { AidRequest, AppState, Item, Post, Shipment, StockMovement, User, V
 import { estimateValue, RULES } from '../rules/businessRules';
 import { appendAudit } from './audit';
 
-export const STATE_VERSION = 4;
+export const STATE_VERSION = 5;
 
 const H = 3600_000;
 const M = 60_000;
 
 export function createSeedState(now = Date.now()): AppState {
   const users: User[] = [
-    { id: 'U01', username: 'kadis', password: 'kadis123', name: 'Dr. Hj. Ratna Wulandari, M.Si', role: 'admin', nip: '197205121998032004', jabatan: 'Kepala Dinas Sosial', phone: '0812-1100-2200', active: true },
-    { id: 'U02', username: 'koordinator', password: 'koor123', name: 'Ir. Bambang Hartono', role: 'koordinator', nip: '198011232005011003', jabatan: 'Koordinator Pusdalops Logistik', phone: '0813-2200-3300', active: true },
-    { id: 'U03', username: 'posko1', password: 'posko123', name: 'Siti Aminah', role: 'posko', nip: '199003152015032001', jabatan: 'Petugas Posko', phone: '0815-3300-4400', active: true, postId: 'P01' },
-    { id: 'U04', username: 'posko2', password: 'posko123', name: 'Rudi Hermawan', role: 'posko', nip: '198807082014031002', jabatan: 'Petugas Posko', phone: '0816-4400-5500', active: true, postId: 'P03' },
+    { id: 'U01', username: 'kadis', password: 'kadis123', name: 'Dr. Hj. Ratna Wulandari, M.Si', role: 'admin', nip: '197205121998032004', jabatan: 'Kepala Dinas Sosial Prov. Sumut', phone: '0812-1100-2200', active: true },
+    { id: 'U02', username: 'koordinator', password: 'koor123', name: 'Ir. Bambang Hartono', role: 'koordinator', nip: '198011232005011003', jabatan: 'Koordinator Pusdalops BPBD Sumut', phone: '0813-2200-3300', active: true },
+    { id: 'U03', username: 'posko1', password: 'posko123', name: 'Siti Aminah', role: 'posko', nip: '199003152015032001', jabatan: 'Petugas Posko Adam Malik', phone: '0815-3300-4400', active: true, postId: 'P01' },
+    { id: 'U04', username: 'posko2', password: 'posko123', name: 'Rudi Hermawan', role: 'posko', nip: '198807082014031002', jabatan: 'Petugas Posko Lapangan Merdeka', phone: '0816-4400-5500', active: true, postId: 'P03' },
     { id: 'U05', username: 'driver1', password: 'driver123', name: 'Budi Santoso', role: 'driver', nip: '-', jabatan: 'Pengemudi (Tenaga Kontrak)', phone: '0817-5500-6600', active: true, vehicleId: 'V01' },
     { id: 'U06', username: 'driver2', password: 'driver123', name: 'Agus Pratama', role: 'driver', nip: '-', jabatan: 'Pengemudi (Tenaga Kontrak)', phone: '0818-6600-7700', active: true, vehicleId: 'V02' },
   ];
 
   const posts: Post[] = [
-    { id: 'P01', name: 'Posko Balai Desa Suka Maju', address: 'Jl. Raya Suka Maju No. 12', district: 'Kec. Cibeber', capacity: 500, evacuees: 450, vulnerable: { balita: 38, lansia: 52, disabilitas: 6, ibuHamil: 9 }, lastUpdate: now - 2 * H, coords: { x: 26, y: 35, lat: -6.845, lng: 107.132 } },
-    { id: 'P02', name: 'Posko SD Negeri 1 Pulo', address: 'Jl. Pendidikan No. 3', district: 'Kec. Pulo', capacity: 400, evacuees: 320, vulnerable: { balita: 25, lansia: 30, disabilitas: 3, ibuHamil: 5 }, lastUpdate: now - 7 * H, coords: { x: 74, y: 28, lat: -6.790, lng: 107.240 } },
-    { id: 'P03', name: 'Posko GOR Serbaguna', address: 'Jl. Olahraga No. 1', district: 'Kec. Kota', capacity: 1000, evacuees: 890, vulnerable: { balita: 74, lansia: 96, disabilitas: 11, ibuHamil: 17 }, lastUpdate: now - 1 * H, coords: { x: 58, y: 68, lat: -6.820, lng: 107.180 } },
-    { id: 'P04', name: 'Posko Masjid Raya Al-Ikhlas', address: 'Jl. Masjid Raya No. 7', district: 'Kec. Kota', capacity: 300, evacuees: 210, vulnerable: { balita: 15, lansia: 22, disabilitas: 2, ibuHamil: 3 }, lastUpdate: now - 10 * H, coords: { x: 42, y: 52, lat: -6.812, lng: 107.155 } },
+    { id: 'P01', name: 'Posko Lapangan Adam Malik', address: 'Jl. H. Adam Malik No. 1, Pematang Siantar', district: 'Kec. Siantar Barat', capacity: 500, evacuees: 450, vulnerable: { balita: 38, lansia: 52, disabilitas: 6, ibuHamil: 9 }, lastUpdate: now - 2 * H, coords: { x: 26, y: 35, lat: 2.959, lng: 99.062 } },
+    { id: 'P02', name: 'Posko Serbaguna Sei Rampah', address: 'Jl. Lintas Sumatera Km. 58, Sei Rampah', district: 'Kec. Sei Rampah (Sergai)', capacity: 400, evacuees: 320, vulnerable: { balita: 25, lansia: 30, disabilitas: 3, ibuHamil: 5 }, lastUpdate: now - 7 * H, coords: { x: 74, y: 28, lat: 3.490, lng: 99.145 } },
+    { id: 'P03', name: 'Posko Terpadu Lapangan Merdeka Medan', address: 'Jl. Balai Kota No. 1, Medan', district: 'Kec. Medan Petisah', capacity: 1000, evacuees: 890, vulnerable: { balita: 74, lansia: 96, disabilitas: 11, ibuHamil: 17 }, lastUpdate: now - 1 * H, coords: { x: 58, y: 68, lat: 3.592, lng: 98.675 } },
+    { id: 'P04', name: 'Posko Siaga Bencana Belawan', address: 'Jl. Pelabuhan Raya No. 7, Medan Belawan', district: 'Kec. Medan Belawan', capacity: 300, evacuees: 210, vulnerable: { balita: 15, lansia: 22, disabilitas: 2, ibuHamil: 3 }, lastUpdate: now - 10 * H, coords: { x: 42, y: 52, lat: 3.785, lng: 98.685 } },
   ];
 
   const items: Item[] = [
@@ -37,9 +37,9 @@ export function createSeedState(now = Date.now()): AppState {
   ];
 
   const vehicles: Vehicle[] = [
-    { id: 'V01', plate: 'B 9123 KZ', type: 'Truk Engkel', capacityKg: 4000, status: 'bertugas' },
-    { id: 'V02', plate: 'B 9456 KZ', type: 'Pick-up', capacityKg: 1000, status: 'tersedia' },
-    { id: 'V03', plate: 'B 9789 KZ', type: 'Truk Fuso', capacityKg: 8000, status: 'perawatan' },
+    { id: 'V01', plate: 'BK 9123 KZ', type: 'Truk Engkel', capacityKg: 4000, status: 'bertugas' },
+    { id: 'V02', plate: 'BK 9456 KZ', type: 'Pick-up Rescue', capacityKg: 1000, status: 'tersedia' },
+    { id: 'V03', plate: 'BK 9789 KZ', type: 'Truk Fuso', capacityKg: 8000, status: 'perawatan' },
   ];
 
   const mk = (r: Omit<AidRequest, 'estimatedValue' | 'needsApproval'>): AidRequest => {
@@ -51,13 +51,13 @@ export function createSeedState(now = Date.now()): AppState {
     mk({
       id: 'REQ-0001', postId: 'P01', requestedBy: 'U03', priority: 'darurat', status: 'diajukan', createdAt: now - 50 * M,
       lines: [{ itemId: 'I01', qty: 400 }, { itemId: 'I02', qty: 1000 }, { itemId: 'I04', qty: 15 }],
-      justification: 'Stok beras dan air posko tersisa untuk 1 hari. Terdapat 38 balita dan 52 lansia yang membutuhkan asupan segera.',
+      justification: 'Stok beras dan air posko tersisa untuk 1 hari pasca-luapan Sungai Bah Bolon. Terdapat 38 balita dan 52 lansia yang membutuhkan asupan segera.',
       history: [{ status: 'diajukan', at: now - 50 * M, by: 'U03' }],
     }),
     mk({
       id: 'REQ-0002', postId: 'P03', requestedBy: 'U04', priority: 'tinggi', status: 'menunggu_persetujuan', createdAt: now - 3 * H, verifiedBy: 'U02',
       lines: [{ itemId: 'I06', qty: 10 }, { itemId: 'I07', qty: 300 }],
-      justification: 'Pengungsi baru dari Desa Sukaresmi bertambah 140 jiwa, area aula GOR penuh sehingga dibutuhkan tenda tambahan di halaman.',
+      justification: 'Pengungsi baru dari bantaran Sungai Deli bertambah 140 jiwa akibat banjir bandang, area aula penuh sehingga dibutuhkan tenda tambahan di halaman.',
       history: [
         { status: 'diajukan', at: now - 3 * H, by: 'U04' },
         { status: 'menunggu_persetujuan', at: now - 2 * H - 20 * M, by: 'U02', note: 'Diverifikasi. Nilai melebihi ambang, diteruskan ke Kepala Dinas.' },
@@ -75,11 +75,11 @@ export function createSeedState(now = Date.now()): AppState {
     mk({
       id: 'REQ-0004', postId: 'P03', requestedBy: 'U04', priority: 'darurat', status: 'dalam_perjalanan', createdAt: now - 4 * H, verifiedBy: 'U02', shipmentId: 'SHP-0002',
       lines: [{ itemId: 'I01', qty: 300 }, { itemId: 'I03', qty: 800 }],
-      justification: 'Dapur umum kehabisan bahan makanan untuk makan malam 890 pengungsi, perlu pasokan sebelum pukul 17.00.',
+      justification: 'Dapur umum kehabisan bahan makanan untuk makan malam 890 pengungsi korban banjir Medan, perlu pasokan sebelum pukul 17.00.',
       history: [
         { status: 'diajukan', at: now - 4 * H, by: 'U04' },
         { status: 'disetujui', at: now - 3 * H - 30 * M, by: 'U02' },
-        { status: 'dikirim', at: now - 3 * H, by: 'U02', note: 'Armada B 9123 KZ — Budi Santoso' },
+        { status: 'dikirim', at: now - 3 * H, by: 'U02', note: 'Armada BK 9123 KZ — Budi Santoso' },
         { status: 'dalam_perjalanan', at: now - 2 * H - 40 * M, by: 'U05' },
       ],
     }),
@@ -90,7 +90,7 @@ export function createSeedState(now = Date.now()): AppState {
       history: [
         { status: 'diajukan', at: now - 28 * H, by: 'U03' },
         { status: 'disetujui', at: now - 27 * H, by: 'U02' },
-        { status: 'dikirim', at: now - 26 * H, by: 'U02', note: 'Armada B 9456 KZ — Agus Pratama' },
+        { status: 'dikirim', at: now - 26 * H, by: 'U02', note: 'Armada BK 9456 KZ — Agus Pratama' },
         { status: 'dalam_perjalanan', at: now - 25 * H - 40 * M, by: 'U06' },
         { status: 'terkirim', at: now - 25 * H, by: 'U06', note: 'Diterima oleh: Siti Aminah' },
         { status: 'diterima', at: now - 24 * H - 50 * M, by: 'U03', note: 'Jumlah sesuai.' },
@@ -103,7 +103,7 @@ export function createSeedState(now = Date.now()): AppState {
       history: [
         { status: 'diajukan', at: now - 9 * H, by: 'U04' },
         { status: 'disetujui', at: now - 8 * H, by: 'U02' },
-        { status: 'dikirim', at: now - 7 * H, by: 'U02', note: 'Armada B 9456 KZ — Agus Pratama' },
+        { status: 'dikirim', at: now - 7 * H, by: 'U02', note: 'Armada BK 9456 KZ — Agus Pratama' },
         { status: 'dalam_perjalanan', at: now - 6 * H - 30 * M, by: 'U06' },
         { status: 'terkirim', at: now - 6 * H, by: 'U06', note: 'Diterima oleh: Rudi Hermawan' },
       ],
@@ -112,7 +112,7 @@ export function createSeedState(now = Date.now()): AppState {
       id: 'REQ-0007', postId: 'P01', requestedBy: 'U03', priority: 'normal', status: 'ditolak', createdAt: now - 20 * H,
       rejectReason: 'Permintaan tenda duplikat dengan pengiriman sebelumnya, kapasitas posko masih mencukupi berdasarkan data terakhir.',
       lines: [{ itemId: 'I06', qty: 5 }],
-      justification: 'Antisipasi penambahan pengungsi apabila hujan deras kembali turun malam ini di wilayah hulu.',
+      justification: 'Antisipasi penambahan pengungsi apabila hujan lebat kembali turun malam ini di hulu Bukit Barisan.',
       history: [
         { status: 'diajukan', at: now - 20 * H, by: 'U03' },
         { status: 'ditolak', at: now - 19 * H, by: 'U02', note: 'Permintaan tenda duplikat dengan pengiriman sebelumnya, kapasitas posko masih mencukupi berdasarkan data terakhir.' },
@@ -141,18 +141,18 @@ export function createSeedState(now = Date.now()): AppState {
     users, items, posts, vehicles, requests, shipments, movements,
     audit: [],
     notifications: [
-      { id: 'N-0001', toRole: 'koordinator', message: 'Permintaan DARURAT REQ-0001 dari Posko Balai Desa Suka Maju menunggu verifikasi.', at: now - 50 * M, link: '/koordinator/verifikasi', level: 'critical', readBy: [] },
+      { id: 'N-0001', toRole: 'koordinator', message: 'Permintaan DARURAT REQ-0001 dari Posko Lapangan Adam Malik menunggu verifikasi.', at: now - 50 * M, link: '/koordinator/verifikasi', level: 'critical', readBy: [] },
       { id: 'N-0002', toRole: 'admin', message: 'REQ-0002 (Rp 57.500.000) menunggu persetujuan Anda.', at: now - 2 * H - 20 * M, link: '/admin/persetujuan', level: 'warning', readBy: [] },
       { id: 'N-0003', toUserId: 'U04', message: 'Pengiriman REQ-0006 telah tiba. Mohon konfirmasi jumlah fisik yang diterima.', at: now - 6 * H, link: '/posko/permintaan', level: 'warning', readBy: [] },
-      { id: 'N-0004', toUserId: 'U05', message: 'Tugas baru SHP-0002 ke Posko GOR Serbaguna.', at: now - 3 * H, link: '/driver/tugas', level: 'info', readBy: ['U05'] },
+      { id: 'N-0004', toUserId: 'U05', message: 'Tugas baru SHP-0002 ke Posko Terpadu Lapangan Merdeka Medan.', at: now - 3 * H, link: '/driver/tugas', level: 'info', readBy: ['U05'] },
     ],
     counters: { REQ: 7, SHP: 3, MOV: 7, N: 4, U: 6, P: 4, I: 9, V: 3 },
     liveSimulation: true,
     disasterAlert: {
       level: 'siaga1',
-      title: 'STATUS SIAGA I TANGGAP DARURAT BENCANA (BMKG & PUSDALOPS)',
-      desc: 'Peringatan dini curah hujan ekstrem & potensi luapan sungai di DAS Kec. Cibeber. Seluruh posko dan armada diinstruksikan bersiaga.',
-      source: 'BMKG Stasiun Klimatologi Jawa Barat & Pusdalops BPBD',
+      title: 'STATUS SIAGA I TANGGAP DARURAT BENCANA (BMKG & PUSDALOPS BPBD SUMUT)',
+      desc: 'Peringatan dini curah hujan ekstrem & potensi luapan Sungai Deli Medan serta Sungai Bah Bolon Siantar. Seluruh posko dan armada diinstruksikan bersiaga.',
+      source: 'BMKG Stasiun Klimatologi Sumatera Utara & Pusdalops BPBD Prov. Sumut',
       updatedAt: now - 15 * M,
     },
   };

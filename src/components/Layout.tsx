@@ -332,7 +332,8 @@ export const Layout: React.FC<{ nav: NavItem[]; title: string; children: React.R
                   <span>Pencarian Cepat Data Terpadu:</span>
                   <div className="search-tags">
                     <button onClick={() => setSearchQuery('REQ-0001')}>REQ-0001</button>
-                    <button onClick={() => setSearchQuery('Suka Maju')}>Posko Suka Maju</button>
+                    <button onClick={() => setSearchQuery('Adam Malik')}>Posko Adam Malik</button>
+                    <button onClick={() => setSearchQuery('Medan')}>Posko Medan</button>
                     <button onClick={() => setSearchQuery('Beras')}>Beras</button>
                     <button onClick={() => setSearchQuery('Truk')}>Armada Truk</button>
                     <button onClick={() => setSearchQuery('darurat')}>Darurat</button>

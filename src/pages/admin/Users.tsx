@@ -83,7 +83,7 @@ const UsersPage: React.FC = () => {
                   className="input"
                   value={formData.username}
                   onChange={(e) => setFormData({ ...formData, username: e.target.value })}
-                  placeholder="mis. petugas_cibeber"
+                  placeholder="mis. petugas_siantar"
                   required
                 />
               </Field>

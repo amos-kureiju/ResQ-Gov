@@ -27,7 +27,7 @@ export const CrisisMap: React.FC = () => {
 
   // Form tambah posko baru
   const [newPostName, setNewPostName] = useState('');
-  const [newPostDistrict, setNewPostDistrict] = useState('Kec. Cibeber');
+  const [newPostDistrict, setNewPostDistrict] = useState('Kec. Siantar Barat');
   const [newPostAddress, setNewPostAddress] = useState('');
   const [newPostCapacity, setNewPostCapacity] = useState(400);
   const [newPostEvacuees, setNewPostEvacuees] = useState(150);
@@ -259,7 +259,7 @@ export const CrisisMap: React.FC = () => {
                 <circle cx="35" cy="40" r="22" fill="url(#hazardGrad)" />
                 <circle cx="35" cy="40" r="22" fill="none" stroke="rgba(239, 68, 68, 0.4)" strokeWidth="0.4" strokeDasharray="1 1" />
                 <text x="35" y="24" fill="#fca5a5" fontSize="2.2" textAnchor="middle" fontWeight="bold">
-                  ZONA BAHAYA LONGSOR & BANJIR DAS
+                  ZONA RAWAN BANJIR SUNGAI DELI & BAH BOLON
                 </text>
               </>
             )}
@@ -337,7 +337,7 @@ export const CrisisMap: React.FC = () => {
                 <animate attributeName="opacity" values="1;0;1" dur="2.5s" repeatCount="indefinite" />
               </circle>
               <text x="0" y="5.5" fill="#e2e8f0" fontSize="2" textAnchor="middle" fontWeight="bold">
-                PUSDALOPS LOGISTIK
+                PUSDALOPS BPBD SUMUT
               </text>
             </g>
 
@@ -551,7 +551,7 @@ export const CrisisMap: React.FC = () => {
               className="input"
               value={newPostDistrict}
               onChange={(e) => setNewPostDistrict(e.target.value)}
-              placeholder="mis. Kec. Cibeber"
+              placeholder="mis. Kec. Siantar Barat"
               required
             />
           </Field>
