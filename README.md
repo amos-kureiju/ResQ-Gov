@@ -15,7 +15,7 @@
 
 Sering kali sistem pengelolaan logistik bencana menghadapi kendala akuntabilitas serius: data bantuan fiktif, ketidaksesuaian jumlah barang antara gudang dan posko, penimbunan barang tanpa batas kewajaran, serta hilangnya jejak pertanggungjawaban aparatur.
 
-**ResQ-Gov** dibangun sebagai wujud nyata penerapan **Prinsip Good Governance** dan standar **Sistem Pemerintahan Berbasis Elektronik (SPBE)** dengan sistem keamanan berlapis (*Authentication Guard, RBAC Route Guard, dan Audit Trail Kriptografis Berantai Hash SHA-256*).
+**ResQ-Gov** dibangun sebagai wujud nyata penerapan **Prinsip Good Governance** dan standar KomDi dengan sistem keamanan berlapis (*Authentication Guard, RBAC Route Guard, dan Audit Trail Kriptografis Berantai Hash SHA-256*).
 
 ---
 
